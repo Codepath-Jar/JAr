@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "Jar"
-                configuration.clientKey = nil
-                configuration.server = "https://secret-sea-88130.herokuapp.com/"
+                //configuration.clientKey = nil
+                configuration.server = "https://secret-sea-88130.herokuapp.com/parse"
             })
         )
         return true
