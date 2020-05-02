@@ -1,7 +1,3 @@
-# JAr
-Group Project - README Template
-===
-
 # JAR
 
 ## Table of Contents
