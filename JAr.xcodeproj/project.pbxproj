@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		751BA6B58E7C5A3EB6F710CA /* Pods_JArTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EB1A45DF182BFA2ED95BB42 /* Pods_JArTests.framework */; };
 		81548599D9FAABEFC94B7D85 /* Pods_JAr_JArUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02D90A5542E5A1E0D12AD1C /* Pods_JAr_JArUITests.framework */; };
+		E03C7FE62463DEC90027D66F /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03C7FE52463DEC90027D66F /* ChatCell.swift */; };
 		E0A0F3C2245A36D60068DBE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A0F3C1245A36D60068DBE3 /* AppDelegate.swift */; };
 		E0A0F3C4245A36D60068DBE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A0F3C3245A36D60068DBE3 /* SceneDelegate.swift */; };
 		E0A0F3C9245A36D60068DBE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0A0F3C7245A36D60068DBE3 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		B02D90A5542E5A1E0D12AD1C /* Pods_JAr_JArUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JAr_JArUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C439AD83AFCED21B8167D567 /* Pods-JAr-JArUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JAr-JArUITests.release.xcconfig"; path = "Target Support Files/Pods-JAr-JArUITests/Pods-JAr-JArUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CC133E2FE4E7E1236EF7D3AE /* Pods-JArTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JArTests.release.xcconfig"; path = "Target Support Files/Pods-JArTests/Pods-JArTests.release.xcconfig"; sourceTree = "<group>"; };
+		E03C7FE52463DEC90027D66F /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		E0A0F3BE245A36D60068DBE3 /* JAr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JAr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A0F3C1245A36D60068DBE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0A0F3C3245A36D60068DBE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				E0A0F3C7245A36D60068DBE3 /* Main.storyboard */,
 				E0A16CD3245E22770091F863 /* LoginViewController.swift */,
 				E0A16CD5245E228F0091F863 /* FeedViewController.swift */,
+				E03C7FE52463DEC90027D66F /* ChatCell.swift */,
 				E0A0F3CA245A36DB0068DBE3 /* Assets.xcassets */,
 				E0A0F3CC245A36DB0068DBE3 /* LaunchScreen.storyboard */,
 				E0A0F3CF245A36DB0068DBE3 /* Info.plist */,
@@ -413,6 +416,7 @@
 				E0A16CD4245E22770091F863 /* LoginViewController.swift in Sources */,
 				E0A0F3C2245A36D60068DBE3 /* AppDelegate.swift in Sources */,
 				E0A16CD6245E228F0091F863 /* FeedViewController.swift in Sources */,
+				E03C7FE62463DEC90027D66F /* ChatCell.swift in Sources */,
 				E0A0F3C4245A36D60068DBE3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
