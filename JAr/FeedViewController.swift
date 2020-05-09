@@ -9,33 +9,29 @@
 import UIKit
 import Parse
 
-class FeedViewController: UIViewController,UITableViewDataSource{
+class FeedViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-    
-
-    
-    var messages = [PFObject]()
+    var chatMessages = [PFObject]()
     let chatMessage = PFObject(className: "Message")
     @IBOutlet weak var feedTableView: UITableView!
     @IBOutlet weak var chatMessageField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        feedTableView.dataSource = self
+        feedTableView.delegate = self
             // Do any additional setup after loading the view.
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(FeedViewController.onTimer), userInfo: nil, repeats: true)
-
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.onTimer), userInfo: nil, repeats: true)
+        onTimer()
+        self.feedTableView.reloadData()
     }
     
     @IBAction func onSend(_ sender: Any) {
         //saves user and message info
         let chatMessage = PFObject(className: "Message")
+        chatMessage["text"] = chatMessageField.text!
+        chatMessage["user"] = PFUser.current();
         chatMessage.saveInBackground { (success, error) in
             if success {
                 print("The message was saved!")
@@ -49,10 +45,42 @@ class FeedViewController: UIViewController,UITableViewDataSource{
         
     }
     
-    @objc func onTimer() {
-    // Add code to be run periodically
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return chatMessages.count
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell") as! ChatCell
+        let chatList = chatMessages[indexPath.row]
+        cell.messageList.text = chatList["text"] as? String
+        if let user = chatList["user"] as? PFUser{
+            cell.userList.text = user.username
+        }
+        else{
+            cell.userList.text = "Random Family Member"
+        }
+        return cell
+    }
+    
+    
+    @objc func onTimer(){
+        let query = PFQuery(className: "Message")
+        query.addDescendingOrder("createdAt")
+        query.limit = 8
+        query.includeKey("user")
+        query.findObjectsInBackground { (messages, error) in
+            if let error = error {
+                // Log details of the failure
+                print(error.localizedDescription)
+            } else if let messages = messages {
+                // The find succeeded.
+                self.chatMessages = messages
+                print("Successfully retrieved \(messages.count) posts.")
+            }
+        }
+        print ("Reload Feed TableView")
+        self.feedTableView.reloadData();
+    }
     
 
 
